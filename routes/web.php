@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+use App\Http\Controllers\AddressController;
+use App\Http\Controllers\CustomerController;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/addresses', [AddressController::class, 'selectAllAddresses']);
+Route::get('/customers', [CustomerController::class, 'selectAllCustomers']);
+Route::get('/customers/{id}', [CustomerController::class, 'selectOneCustomer']);
